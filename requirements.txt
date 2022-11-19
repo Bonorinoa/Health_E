@@ -101,6 +101,7 @@ pyasn1-modules==0.2.8
 pycosat==0.6.3
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pyct==0.4.8
+pydantic==1.10.2
 pydeck==0.8.0
 Pygments==2.13.0
 PyJWT==2.6.0
