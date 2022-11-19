@@ -15,10 +15,8 @@ import json
 import os
 
 # Serp API key
-# https://serpapi.com/manage-api-key
-#serp_key = "99bdacc49c981c56debcd24eb068f5eebed6a273e37c1410584599a6fbf4155c"
 
-os.environ["SERP_API"] = "99bdacc49c981c56debcd24eb068f5eebed6a273e37c1410584599a6fbf4155c"
+os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
 os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
 
 COHERE_API = os.environ['COHERE_API']
