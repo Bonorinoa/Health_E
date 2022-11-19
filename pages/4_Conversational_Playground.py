@@ -22,6 +22,8 @@ co = co.Client(COHERE_API)
 
 # Let's let the user pick from the default persona
 
+st.title("Conversant AI bot")
+
 persona = st.selectbox(
     'How would you like to be contacted?',
     ("fantasy-wizard", 

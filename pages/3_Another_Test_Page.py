@@ -40,6 +40,7 @@ def wake_up_bot(question):
   return answer
 
 #----------------------------------------------------
+st.title("Grounded QA bot")
 
 form = st.form(key="user_settings")
 with form:
