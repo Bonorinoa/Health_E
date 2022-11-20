@@ -1,6 +1,13 @@
+# Cohere's imports
 import cohere as co
-import os
+from cohere.classify import Example
 from conversant import PromptChatbot
+from conversant.prompts import ChatPrompt
+
+# Sreamlit
+import streamlit as st
+
+import os
 
 os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
 
@@ -9,12 +16,9 @@ COHERE_API = os.environ["COHERE_API"]
 co = co.Client(COHERE_API)
 
 
-health_e = PromptChatbot.from_persona("health-e",
-    client=co, persona_dir="anomalies/anomalies/conversant/personas"
-)
+health_e = PromptChatbot.from_persona("health-e", client=co)
 
-
-print(health_e.reply("I stomoch pain!"))
+st.write(health_e.reply("I stomach pain!"))
 
 
 
