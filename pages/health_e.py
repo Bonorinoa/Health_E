@@ -15,10 +15,15 @@ COHERE_API = os.environ["COHERE_API"]
 
 co = co.Client(COHERE_API)
 
+# Let's let the user pick from the default persona
+
+st.title("Health-E: AI healthcare assistant")
+
+first_message = st.text_input("How may I help you today?", key="input_prompt")
 
 health_e = PromptChatbot.from_persona("health-e", client=co)
 
-st.write(health_e.reply("I stomach pain!"))
+st.write(health_e.reply(first_message))
 
 
 
