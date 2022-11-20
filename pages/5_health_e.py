@@ -3,6 +3,7 @@ import cohere as co
 from cohere.classify import Example
 from conversant.prompt_chatbot import PromptChatbot
 from conversant.utils import demo_utils
+from qa.bot import GroundedQaBot
 
 # Sreamlit
 import streamlit as st
@@ -17,11 +18,15 @@ import sys
 import emoji
 from typing import Literal, Optional, Union
 
+os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
 os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
 
-COHERE_API = os.environ["COHERE_API"]
+COHERE_API = os.environ['COHERE_API']
+SERP_API = os.environ['SERP_API']
 
 co = co.Client(COHERE_API)
+
+bot = GroundedQaBot(COHERE_API, SERP_API)
 
 #------------------------------------------------------------
 COMPONENT_NAME = "streamlit_chat"
@@ -60,8 +65,20 @@ AvatarStyle = Literal[
     "personas",
 ]
 
+def query_healthe(text_input):
+    
+	diagnose = health_e.reply(text_input)
+ 
+	return diagnose
+
+def query_qa(question):
+    
+    answer = bot.answer(question)
+    
+    return answer
+
 def get_text():
-    input_text = st.text_input("Hello! How can I help you?", "", key="input")
+    input_text = st.text_input("Hello! How may I assist you?", "", key="input_text")
     return input_text 
 
 def chat_message(message: str,
@@ -80,24 +97,27 @@ st.title("Health-E: AI healthcare assistant")
 
 health_e = PromptChatbot.from_persona("health-e", client=co)
 
-if 'generated' not in st.session_state:
-    st.session_state['generated'] = []
+if 'bot_output' not in st.session_state:
+    st.session_state['bot_output'] = []
 
-if 'past' not in st.session_state:
-    st.session_state['past'] = []
+if 'user_text' not in st.session_state:
+    st.session_state['user_text'] = []
+    
+if "bot" not in st.session_state:
+    st.session_state['bot'] = health_e
 
 user_input = get_text()
 
 if user_input:
-    output = health_e.reply(user_input)
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+    st.session_state.user_text.append(user_input)
+    output = query_healthe(user_input)
+    st.session_state.bot_output.append(output)
 
-if st.session_state['generated']:
+if (st.session_state['bot_output']):
 
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        chat_message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-        chat_message(st.session_state["generated"][i], key=str(i), avatar_style="croodles")
+    for i in range(len(st.session_state['bot_output'])-1, -1, -1):
+        chat_message(st.session_state['user_text'][i], is_user=True, key=str(i) + '_user')
+        chat_message(st.session_state["bot_output"][i], key=str(i), avatar_style="gridy")
         
 
 
