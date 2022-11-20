@@ -20,11 +20,11 @@ import emoji
 import logging
 from typing import Literal, Optional, Union
 
-os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
-os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
+#os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
+#os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
 
-COHERE_API = os.environ['COHERE_API']
-SERP_API = os.environ['SERP_API']
+COHERE_API = st.secrets['COHERE_API']
+SERP_API = st.secrets['SERP_API']
 
 co = co.Client(COHERE_API)
 
