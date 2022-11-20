@@ -7,6 +7,7 @@ from conversant.utils import demo_utils
 # Sreamlit
 import streamlit as st
 from streamlit_chat import message
+import streamlit.components.v1 as components
 
 # general imports
 import ast
@@ -14,6 +15,7 @@ import copy
 import os
 import sys
 import emoji
+from typing import Literal, Optional, Union
 
 os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
 
@@ -22,50 +24,56 @@ COHERE_API = os.environ["COHERE_API"]
 co = co.Client(COHERE_API)
 
 #------------------------------------------------------------
+COMPONENT_NAME = "streamlit_chat"
+
+root_dir = os.path.dirname(os.path.abspath(__file__))
+build_dir = os.path.join(root_dir, "frontend/build")
+
+_streamlit_chat = components.declare_component(
+    COMPONENT_NAME,
+    path = build_dir)
+
 USER_AVATAR_SHORTCODE = ":bust_in_silhouette:"
+
+# data type for avatar style
+AvatarStyle = Literal[ 
+    "adventurer", 
+    "adventurer-neutral", 
+    "avataaars",
+    "big-ears",
+    "big-ears-neutral",
+    "big-smile",
+    "bottts", 
+    "croodles",
+    "croodles-neutral",
+    "female",
+    "gridy",
+    "human",
+    "identicon",
+    "initials",
+    "jdenticon",
+    "male",
+    "micah",
+    "miniavs",
+    "pixel-art",
+    "pixel-art-neutral",
+    "personas",
+]
 
 def get_text():
     input_text = st.text_input("You: ","Hello, how are you?", key="input")
     return input_text 
 
-def get_reply() -> None:
-    """Replies query from the message input, and resets the message input"""
-    _ = st.session_state.bot.reply(query=st.session_state.message_input)
-    st.session_state.message_input = ""
-
-def update_session_with_prompt() -> None:
-    """Saves the prompt config dictionary into the session state."""
-    if "bot" in st.session_state and st.session_state.bot:
-        st.session_state.snapshot_prompt_config = copy.deepcopy(
-            st.session_state.bot.prompt.to_dict()
-        )
-        st.session_state.snapshot_chatbot_config = copy.deepcopy(
-            st.session_state.bot.chatbot_config
-        )
-        st.session_state.snapshot_client_config = copy.deepcopy(
-            st.session_state.bot.client_config
-        )
-
-def initialize_chatbot() -> None:
-    """Initializes the chatbot from a selected persona and saves the session state."""
-    if st.session_state.persona.startswith("(launched)") and len(sys.argv) > 1:
-        st.session_state.bot = demo_utils.decode_chatbot(
-            sys.argv[1], client=co.Client(os.environ.get("COHERE_API"))
-        )  # Launched via demo_utils.launch_streamlit() utility function
-    elif st.session_state.persona == "":
-        st.session_state.bot = None
-    else:
-        st.session_state.bot = PromptChatbot.from_persona(
-            emoji.replace_emoji(st.session_state.persona, "").strip(),
-            client=co.Client(os.environ.get("COHERE_API")),
-        )
-    if "bot" in st.session_state and st.session_state.bot:
-        update_session_with_prompt()
-    # Reset the edit_promp_json session state so we don't remain on the JSON editor when
-    # changing to another bot. This is because st_ace is unable to write
-    # new values from the current session state.
-    st.session_state.edit_prompt_json = False
+def chat_message(message: str,
+                 is_user: bool = False,
+                 avatar_style: Optional[AvatarStyle] = None,
+                 seed: Optional[Union[int, str]] = 42,
+                 key: Optional[str] = None):
     
+    if not avatar_style:
+        avatar_style = "pixel-art-neutral" if is_user else "bottts"
+
+    _streamlit_chat(message=message, seed=seed, isUser=is_user, avatarStyle=avatar_style, key=key)
 #---------------------------------------------------------------
 
 st.title("Health-E: AI healthcare assistant")
@@ -77,17 +85,19 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 
-first_message = st.text_input("How may I help you today?", key="input_prompt")
 
 health_e = PromptChatbot.from_persona("health-e", client=co)
+chat_message("Hi! How may I help you today?", key="1") 
 
-st.write(health_e.reply(first_message))
+first_message = st.text_input("talk to me", key="input_prompt")
+chat_message(first_message, is_user=True, key="2")
 
-message("My message") 
-message("Hello bot!", is_user=True)
+chat_message(health_e.reply(first_message), key="3")
 
+second_message = st.text_input("anything else", key="second_prompt")
+chat_message(second_message, is_user=True, key="4")
 
-
+chat_message(health_e.reply(second_message), key="5")
 
 
 
