@@ -4,9 +4,9 @@ channels:
 dependencies:
   - python=3.10
   - streamlit
-  - cohere
   - pip
   - pip:
+    - cohere
     - pydantic
     - bs4
     - google-search-results
