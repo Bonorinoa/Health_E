@@ -13,3 +13,5 @@ COHERE_API = os.environ['COHERE_API']
 # Nested loop three levels deep
 
 st.title('Welcome to the main page of the web application')
+
+st.write("we need a description of the product, some basic information about the working of Health-E. The issue we are solving, etc. This first home page should be solely informative")

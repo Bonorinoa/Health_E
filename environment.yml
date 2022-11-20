@@ -1,0 +1,13 @@
+name: health_e
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - streamlit
+  - cohere
+  - pip
+  - pip:
+    - pydantic
+    - bs4
+    - google-search-results
+prefix: C:\Users\Bonoc\anaconda3\envs\health_e
