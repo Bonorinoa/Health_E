@@ -61,7 +61,7 @@ AvatarStyle = Literal[
 ]
 
 def get_text():
-    input_text = st.text_input("You: ","Hello, how are you?", key="input")
+    input_text = st.text_input("Hello! How can I help you?", "", key="input")
     return input_text 
 
 def chat_message(message: str,
@@ -78,26 +78,29 @@ def chat_message(message: str,
 
 st.title("Health-E: AI healthcare assistant")
 
+health_e = PromptChatbot.from_persona("health-e", client=co)
+
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
 
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
+user_input = get_text()
+
+if user_input:
+    output = health_e.reply(user_input)
+    st.session_state.past.append(user_input)
+    st.session_state.generated.append(output)
+
+if st.session_state['generated']:
+
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        chat_message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        chat_message(st.session_state["generated"][i], key=str(i), avatar_style="croodles")
+        
 
 
-health_e = PromptChatbot.from_persona("health-e", client=co)
-chat_message("Hi! How may I help you today?", key="1") 
-
-first_message = st.text_input("talk to me", key="input_prompt")
-chat_message(first_message, is_user=True, key="2")
-
-chat_message(health_e.reply(first_message), key="3")
-
-second_message = st.text_input("anything else", key="second_prompt")
-chat_message(second_message, is_user=True, key="4")
-
-chat_message(health_e.reply(second_message), key="5")
 
 
 
