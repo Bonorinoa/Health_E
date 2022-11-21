@@ -25,7 +25,7 @@ st.write("With just one prompt the users are connected with the required doctor 
 st.write("Additionally, our bot shares useful online resources.")
 st.write(''
          '')
-st.subheader('This is the conversation flow')
+st.subheader('This is the architecture design on a potential conversation flow')
 from PIL import Image
 image = Image.open('health-E_design.png')
 
