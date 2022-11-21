@@ -194,27 +194,48 @@ with form:
 
     if 'history_outputs' in st.session_state:
 
+        first_chat = False
+        qa = False
+
         for i in range(0, len(st.session_state['history_outputs']), 1):
-            logging.info(f"length evaluated: {len(st.session_state['history_outputs'])-1}")
+            
             chat_message_ui(st.session_state['history_inputs'][i], is_user=True, key=str(i) + '_user')
             
             # clean diagnose string
-            components_of_diagnose = st.session_state['history_outputs'][i].split(",")
-
+            if "Source" not in st.session_state['history_outputs'][i]:
+                components_of_diagnose = st.session_state['history_outputs'][i].split(",")
+                qa = False
             
+            else:
+                components_of_diagnose = st.session_state['history_outputs'][i].split("Source:")
+                qa = True
+            
+            first_chat = True
             chat_message_ui(st.session_state['history_outputs'][i], key=str(i), avatar_style="female")
-    
-        if len(st.session_state["history_outputs"]) > 0:
-                
-            dict_report = {"ID": st.session_state['random_id'], 
-                        "session start time": datetime.datetime.now(), # Record the individual chat input start time
-                        "Notes": components_of_diagnose[-1]}
             
-            i=0
-            while ":" in components_of_diagnose[i]:
-                key, value = components_of_diagnose[i].split(":")
-                dict_report[key] = value
-                i += 1
+    
+        if first_chat != False:
+            
+            if qa == True:
+                answer, source = components_of_diagnose[0], components_of_diagnose[1]
+                
+                dict_report = {"ID": st.session_state['random_id'], 
+                        "session start time": datetime.datetime.now(), # Record the individual chat input start time
+                        "Answer": answer,
+                        "Source": source,
+                        "Notes": " "}
+            else:  
+                dict_report = {"ID": st.session_state['random_id'], 
+                        "session start time": datetime.datetime.now(), # Record the individual chat input start time
+                        "Answer": " ",
+                        "Source": " ",
+                        "Notes": components_of_diagnose[-1]}
+                  
+                i=0
+                while ":" in components_of_diagnose[i]:
+                    key, value = components_of_diagnose[i].split(":")
+                    dict_report[key] = value
+                    i += 1
                 
             st.session_state['session_report'].append(dict_report)
             logging.info(f"Session report: {st.session_state['session_report']}")
