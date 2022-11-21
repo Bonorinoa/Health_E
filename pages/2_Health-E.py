@@ -244,12 +244,21 @@ with form:
             report_df = pd.DataFrame(st.session_state['session_report'])
             st.dataframe(st.session_state['session_report'])
 
-            
+if st.checkbox("Show available times"):
+    #available_slots = ["Wednesday 11/23 5pm", "Saturday 11/26 9am", "Sunday 11/27 11am"]
+    appointment_date = st.selectbox(
+        f"I can book an appointment for you. I found the following slots available for the specialist you need:",
+        ("Wednesday 11/23 5pm", "Saturday 11/26 9am", "Sunday 11/27 11am"))
+
+    contact_option = st.selectbox(
+        'How would you like to be contacted?',
+        ('Email', 'Home phone', 'Mobile phone'))
+
+    if st.button("Book appointment"):
+        st.success(f"Your appointment has been succesfully booked for {appointment_date} and you will be contacted by {contact_option}", icon="✅")
+        st.balloons()
+
         
-        
-
-
-
 
 
 
