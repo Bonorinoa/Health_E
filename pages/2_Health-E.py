@@ -204,23 +204,24 @@ with form:
             
             chat_message_ui(st.session_state['history_outputs'][i], key=str(i), avatar_style="female")
     
+        if len(st.session_state["history_outputs"]) > 1:
+                
+            dict_report = {"ID": st.session_state['random_id'], 
+                        "session start time": datetime.datetime.now(), # Record the individual chat input start time
+                        "Notes": components_of_diagnose[-1]}
             
-        dict_report = {"ID": st.session_state['random_id'], 
-                       "session start time": datetime.datetime.now(), # Record the individual chat input start time
-                       "Notes": components_of_diagnose[-1]}
-        
-        i=0
-        while ":" in components_of_diagnose[i]:
-            key, value = components_of_diagnose[i].split(":")
-            dict_report[key] = value
-            i += 1
+            i=0
+            while ":" in components_of_diagnose[i]:
+                key, value = components_of_diagnose[i].split(":")
+                dict_report[key] = value
+                i += 1
+                
+            st.session_state['session_report'].append(dict_report)
+            logging.info(f"Session report: {st.session_state['session_report']}")
             
-        st.session_state['session_report'].append(dict_report)
-        logging.info(f"Session report: {st.session_state['session_report']}")
-        
-        # Display report/information identified so far by Health-E
-        report_df = pd.DataFrame(st.session_state['session_report'])
-        st.dataframe(st.session_state['session_report'])
+            # Display report/information identified so far by Health-E
+            report_df = pd.DataFrame(st.session_state['session_report'])
+            st.dataframe(st.session_state['session_report'])
 
             
         
