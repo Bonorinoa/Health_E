@@ -25,8 +25,8 @@ st.write("With just one prompt the users are connected with the required doctor 
 st.write("Additionally, our bot shares useful online resources.")
 st.write(''
          '')
-st.subheader('This is our workflow')
+st.subheader('This is the conversation flow')
 from PIL import Image
-image = Image.open('workflow.png')
+image = Image.open('health_e_flow.png')
 
-st.image(image, caption='workflow')
+st.image(image, caption='conversation flow')

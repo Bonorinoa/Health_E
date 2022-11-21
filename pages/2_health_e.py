@@ -41,8 +41,6 @@ _streamlit_chat = components.declare_component(
     COMPONENT_NAME,
     path = build_dir)
 
-USER_AVATAR_SHORTCODE = ":bust_in_silhouette:"
-
 # data type for avatar style
 AvatarStyle = Literal[ 
     "adventurer", 
@@ -189,7 +187,7 @@ with form:
         for i in range(0, len(st.session_state['history_outputs']), 1):
             logging.info(f"length evaluated: {len(st.session_state['history_outputs'])-1}")
             chat_message_ui(st.session_state['history_inputs'][i], is_user=True, key=str(i) + '_user')
-            chat_message_ui(st.session_state["history_outputs"][i], key=str(i))
+            chat_message_ui(st.session_state["history_outputs"][i], key=str(i), avatar_style="female")
         
 
 
