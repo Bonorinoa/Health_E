@@ -14,8 +14,12 @@
 
 ### Main dependencies/technical info
 
-- Python 3.7-3.10 (required to run streamlit)
-- Cohere
+- python 3.7-3.10 (required to run streamlit)
+- cohere
+- streamlit
+- streamlit_chat
+- google-search-results
+- bs4
 
 ### About the project
 
