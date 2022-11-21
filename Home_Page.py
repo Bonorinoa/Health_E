@@ -27,7 +27,7 @@ st.write(''
          '')
 st.subheader('This is the conversation flow')
 from PIL import Image
-image = Image.open('health_e_flow.png')
+image = Image.open('health-E_design.png')
 
 st.image(image, caption='conversation flow')
 
