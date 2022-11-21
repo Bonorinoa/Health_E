@@ -191,9 +191,9 @@ with form:
             # clean diagnose string
             components_of_diagnose = st.session_state['history_outputs'][i].split(",")
             
-            clean_diagnose = f"Category: {components_of_diagnose[0]} \nCause: {components_of_diagnose[1]}" \
-                + f"\nInjury area(s): {components_of_diagnose[2]} \nDoctor: {components_of_diagnose[3]}" \
-                + f"\nUrgency: {components_of_diagnose[4]} \nNotes: {components_of_diagnose[5]}"
+            clean_diagnose = f"{components_of_diagnose[0]} \n\n{components_of_diagnose[1]}\n" \
+                + f"\n{components_of_diagnose[2]} \n\n{components_of_diagnose[3]}\n" \
+                + f"\n{components_of_diagnose[4]} \n\n{components_of_diagnose[5]}"
             
             chat_message_ui(clean_diagnose, key=str(i), avatar_style="female")
         
