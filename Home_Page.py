@@ -30,3 +30,7 @@ from PIL import Image
 image = Image.open('health_e_flow.png')
 
 st.image(image, caption='conversation flow')
+
+st.subheader("Our Ideals")
+st.write("")
+st.write("This AI will help hospitals and Doctors skip the crucial paperwork needed before you get treatment from the doctor, making it possible for patients directly to get a bed when they enter the hospital. With Health-e we eliminate this paperwork. When there is a person in need of medical attention and no medical assistance on site, Health-e is always there to help with important information and simultaneously analyze the situation. Every second counts in these situations Health-e could be there in an instant with medical assistance in seconds. But it does not end there Health-e gives you many tips and tricks with even the trivial problems just in your pocket and one question away.")
