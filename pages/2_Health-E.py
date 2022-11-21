@@ -17,7 +17,11 @@ import copy
 import os
 import sys
 import emoji
+import time
 import logging
+import pandas as pd
+import datetime
+import random
 from typing import Literal, Optional, Union
 
 #os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
@@ -118,6 +122,12 @@ def init_chat():
         
     if ("history_inputs" not in st.session_state):
         st.session_state['history_inputs'] = []
+        
+    if ("random_id" not in st.session_state):
+        st.session_state['random_id'] = random.randint(0, 1000)
+        
+    if ("session_report" not in st.session_state):
+        st.session_state['session_report'] = []
 
     logging.info(st.session_state.keys)
 #---------------------------------------------------------------
@@ -143,7 +153,7 @@ with form:
         elif "?" not in user_input:
 
             output = query_bot(user_input, qa=False)
-            logging.info("Heealth-E bot:" + output)
+            logging.info("Health-E bot:" + output)
             
             # append new description to user chat history
             st.session_state["patient_description"].append(user_input)
@@ -190,12 +200,30 @@ with form:
             
             # clean diagnose string
             components_of_diagnose = st.session_state['history_outputs'][i].split(",")
+
             
-            clean_diagnose = f"{components_of_diagnose[0]} \n\n{components_of_diagnose[1]}\n" \
-                + f"\n{components_of_diagnose[2]} \n\n{components_of_diagnose[3]}\n" \
-                + f"\n{components_of_diagnose[4]} \n\n{components_of_diagnose[5]}"
+            chat_message_ui(st.session_state['history_outputs'][i], key=str(i), avatar_style="female")
+    
             
-            chat_message_ui(clean_diagnose, key=str(i), avatar_style="female")
+        dict_report = {"ID": st.session_state['random_id'], 
+                       "session start time": datetime.datetime.now(), # Record the individual chat input start time
+                       "Notes": components_of_diagnose[-1]}
+        
+        i=0
+        while ":" in components_of_diagnose[i]:
+            key, value = components_of_diagnose[i].split(":")
+            dict_report[key] = value
+            i += 1
+            
+        st.session_state['session_report'].append(dict_report)
+        logging.info(f"Session report: {st.session_state['session_report']}")
+        
+        # Display report/information identified so far by Health-E
+        report_df = pd.DataFrame(st.session_state['session_report'])
+        st.dataframe(st.session_state['session_report'])
+
+            
+        
         
 
 
