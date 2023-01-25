@@ -19,12 +19,12 @@
         "examples": [
             [
                 {
-                    "user": "I have a headache and I feel dizzy.",
-                    "bot": "I see. I think you have a concussion. I will assign you to the Trauma department. I will also assign you a 3 for urgency. I will also mention that you are conscious."
+                    "user": "I burnt my tongue with a torch.",
+                    "bot": "Category: Accident, Cause: torch, Injury Areas: tongue MAYBE face, Doctor: Dermatologist, urgent care, Urgency: 4, Patient is conscious"
                 },
                 {
                     "user": "hello",
-                    "bot": "What brings you in today?"
+                    "bot": "Hi! I am Health-E, an AI nurse assistant. I can help connect you to the right doctor. How may I assist you today?"
                 },
                 {
                     "user": "I have fallen down the stairs and hurt my neck and my back. I am pretty sure my arm is broken too.",

@@ -24,11 +24,12 @@ import datetime
 import random
 from typing import Literal, Optional, Union
 
-#os.environ["SERP_API"] = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9"
-#os.environ["COHERE_API"] = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV"
+# TODO: add history memory for recent user inputs for questions
 
-COHERE_API = "mhsnOPXxi1m91vlrQJ6VsKFoDVhiqlKPeYHtEsZV" #st.secrets['COHERE_API']
-SERP_API = "d795ad9b9ae5bac9213f4497cc5b1a0102281c2104b895ad908eb14452a295f9" #st.secrets['SERP_API']
+#------------------------------------------------------------
+
+COHERE_API = st.secrets['COHERE_API']
+SERP_API = st.secrets['SERP_API']
 
 co = co.Client(COHERE_API)
 
@@ -70,6 +71,17 @@ AvatarStyle = Literal[
     "personas",
 ]
 
+import re
+
+def is_question(text):
+    question_words = ["what", "when", "where", "who", "why", "how", "which"]
+    question_regex = "|".join(question_words)
+    if re.search(f"^{question_regex}", text, re.IGNORECASE):
+        return True
+    else:
+        return False
+
+@st.cache(allow_output_mutation=True, show_spinner=True)
 def query_bot(text_input: str,
               qa: bool):
     
@@ -87,10 +99,10 @@ def get_text():
     return input_text 
 
 def chat_message_ui(message: str,
-                 is_user: bool = False,
-                 avatar_style: Optional[AvatarStyle] = None,
-                 seed: Optional[Union[int, str]] = 42,
-                 key: Optional[str] = None):
+                    is_user: bool = False, # choose random string from AvatarStyle for default
+                    avatar_style: Optional[AvatarStyle] = None,
+                    seed: Optional[Union[int, str]] = 42,
+                    key: Optional[str] = None):
     '''
     Streamlit chat frontend style and display
     '''
@@ -138,7 +150,7 @@ init_chat()
 
 form = st.form(key="user_settings")
 with form:
-    st.write("Hi! How may I help?")
+    st.write("Hi! I am Health-E, an AI nurse assistant. I can help connect you to the right doctor and book appointments fast based on the urgency of your injury. How may I assist you today?")
     
     # User input - Question or description
     user_input = st.text_input("Question or statement", key="intro_msg")
@@ -150,32 +162,31 @@ with form:
         if user_input == "":
             st.error("Sure you don't wan't to ask anything?")
         
-        elif "?" not in user_input:
-
-            output = query_bot(user_input, qa=False)
-            logging.info("Health-E bot:" + output)
-            
-            # append new description to user chat history
-            st.session_state["patient_description"].append(user_input)
-            st.session_state['history_inputs'].append(user_input)
-            
-            # append new health-e output to bot chat history
-            st.session_state['healthE_output'].append(output)
-            st.session_state["history_outputs"].append(output)
-        
-        
-        else:
-            
+        if is_question(user_input):
             answer = query_bot(user_input, qa=True)
             logging.info("QA bot:" + answer)
-            
             # append new question to user chat history
             st.session_state["patient_question"].append(user_input)
             st.session_state['history_inputs'].append(user_input)
-            
             # append new qa bot output to bot chat history
             st.session_state['QA_output'].append(answer)
             st.session_state["history_outputs"].append(answer)
+        else:
+            # limited to one message memory
+            if len(st.session_state["history_inputs"]) == 0:
+                prompt = user_input
+            else:
+                prompt = st.session_state["history_inputs"][-1] + " " + user_input
+
+            output = query_bot(prompt, qa=False)
+            logging.info("Health-E bot:" + output)
+            # append new description to user chat history
+            st.session_state["patient_description"].append(user_input)
+            st.session_state['history_inputs'].append(user_input)
+            # append new health-e output to bot chat history
+            st.session_state['healthE_output'].append(output)
+            st.session_state["history_outputs"].append(output)
+
         
         logging.info("-------------------------------------------------------------------------")
         logging.info(" ")
@@ -212,7 +223,6 @@ with form:
             
             first_chat = True
             chat_message_ui(st.session_state['history_outputs'][i], key=str(i), avatar_style="female")
-            
     
         if first_chat != False:
             
