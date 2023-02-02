@@ -1,14 +1,14 @@
 altair==4.2.0
-argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
-argon2-cffi-bindings @ file:///C:/ci/argon2-cffi-bindings_1644551690056/work
-asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+argon2-cffi 
+argon2-cffi-bindings 
+asttokens 
 attrs==22.1.0
-backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
-beautifulsoup4 @ file:///C:/ci/beautifulsoup4_1650293025093/work
-bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
+backcall 
+beautifulsoup4 
+bleach 
 blinker==1.5
-bokeh @ file:///C:/Windows/TEMP/abs_4a259bc2-ed05-4a1f-808e-ac712cc0900cddqp8sp7/croots/recipe/bokeh_1658136660686/work
-Bottleneck @ file:///C:/Windows/Temp/abs_3198ca53-903d-42fd-87b4-03e6d03a8381yfwsuve8/croots/recipe/bottleneck_1657175565403/work
+bokeh 
+Bottleneck 
 brotlipy==0.7.0
 bs4==0.0.1
 cachetools==5.2.0
