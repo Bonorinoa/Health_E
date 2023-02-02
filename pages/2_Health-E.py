@@ -12,12 +12,7 @@ from streamlit_chat import message
 import streamlit.components.v1 as components
 
 # general imports
-import ast
-import copy
 import os
-import sys
-import emoji
-import time
 import logging
 import pandas as pd
 import datetime
