@@ -1,7 +1,7 @@
 streamlit
 pandas 
 numpy
-PIL
+Pillow
 os
 logging
 pandas
