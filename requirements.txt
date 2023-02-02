@@ -2,7 +2,6 @@ streamlit
 pandas 
 numpy
 Pillow
-logging
 pandas
 datetime
 random
