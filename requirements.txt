@@ -1,3 +1,4 @@
+google-search-results
 bs4
 pydantic
 streamlit
