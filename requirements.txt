@@ -12,28 +12,28 @@ Bottleneck
 brotlipy==0.7.0
 bs4==0.0.1
 cachetools==5.2.0
-certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
-cffi @ file:///C:/ci_310/cffi_1642682485096/work
+certifi 
+cffi 
 charset-normalizer==2.1.1
 click==8.1.3
 cohere==2.8.0
-colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+colorama
 colorcet==3.0.1
 commonmark==0.9.1
 conda==23.1.0
-conda-content-trust @ file:///tmp/build/80754af9/conda-content-trust_1617045594566/work
-conda-package-handling @ file:///C:/ci/conda-package-handling_1649106011304/work
+conda-content-trust 
+conda-package-handling 
 contourpy==1.0.6
-cryptography @ file:///C:/ci/cryptography_1639414720302/work
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
-debugpy @ file:///C:/ci/debugpy_1637091961445/work
-decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
-defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+cryptography 
+cycler 
+debugpy 
+decorator 
+defusedxml 
 emoji==2.2.0
-entrypoints @ file:///C:/ci/entrypoints_1649926621128/work
-executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
-fastjsonschema @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_ebruxzvd08/croots/recipe/python-fastjsonschema_1661376484940/work
-filelock @ file:///C:/b/abs_c7yrhs9uz2/croot/filelock_1672387617533/work
+entrypoints 
+executing 
+fastjsonschema 
+filelock 
 fonttools==4.38.0
 gitdb==4.0.9
 GitPython==3.1.29
@@ -49,126 +49,125 @@ greenlet==2.0.1
 holoviews==1.15.2
 httplib2==0.21.0
 huggingface-hub==0.12.0rc0
-idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
+idna 
 importlib-metadata==5.0.0
-ipykernel @ file:///C:/b/abs_21ykzkm7y_/croots/recipe/ipykernel_1662361803478/work
-ipython @ file:///C:/b/abs_84shimxwmz/croot/ipython_1668088123494/work
-ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
-jedi @ file:///C:/ci/jedi_1644315428289/work
-Jinja2 @ file:///C:/b/abs_7cdis66kl9/croot/jinja2_1666908141852/work
-joblib @ file:///tmp/build/80754af9/joblib_1635411271373/work
+ipykernel 
+ipython
+ipython-genutils
+jedi 
+Jinja2 
+joblib 
 jsonschema==4.17.0
-jupyter-server @ file:///C:/Windows/TEMP/abs_d3c42c59-765d-4f9b-9fa3-ad5b1369485611i_yual/croots/recipe/jupyter_server_1658754493238/work
-jupyter_client @ file:///C:/b/abs_8fbm7986b_/croots/recipe/jupyter_client_1662504374117/work
-jupyter_core @ file:///C:/b/abs_b8r5lb5eus/croot/jupyter_core_1668084445779/work
-jupyterlab-pygments @ file:///tmp/build/80754af9/jupyterlab_pygments_1601490720602/work
+jupyter-server 
+jupyter_client 
+jupyter_core 
+jupyterlab-pygments 
 kiwisolver==1.4.4
-langchain==0.0.65
-lxml @ file:///C:/ci/lxml_1657527445690/work
-Markdown @ file:///C:/ci/markdown_1614364082838/work
-MarkupSafe @ file:///C:/ci/markupsafe_1654508077284/work
+lxml 
+Markdown 
+MarkupSafe 
 matplotlib==3.6.2
-matplotlib-inline @ file:///C:/ci/matplotlib-inline_1661915841596/work
-menuinst @ file:///C:/ci/menuinst_1631733438520/work
-mistune @ file:///C:/ci/mistune_1607359457024/work
+matplotlib-inline 
+menuinst 
+mistune 
 mkl-fft==1.3.1
-mkl-random @ file:///C:/ci/mkl_random_1626186184308/work
+mkl-random 
 mkl-service==2.4.0
 munkres==1.1.4
-nbclassic @ file:///C:/b/abs_26e3fkk516/croot/nbclassic_1668174974037/work
-nbclient @ file:///C:/ci/nbclient_1650290387259/work
-nbconvert @ file:///C:/b/abs_4av3q4okro/croot/nbconvert_1668450658054/work
-nbformat @ file:///C:/b/abs_1dw90o2uqb/croots/recipe/nbformat_1663744957967/work
-nest-asyncio @ file:///C:/ci/nest-asyncio_1649829929390/work
-notebook @ file:///C:/b/abs_ca13hqvuzw/croot/notebook_1668179888546/work
-notebook_shim @ file:///C:/b/abs_ebfczttg6x/croot/notebook-shim_1668160590914/work
-numexpr @ file:///C:/Windows/Temp/abs_e2036a32-9fe9-47f3-a04c-dbb1c232ba4b334exiur/croots/recipe/numexpr_1656940304835/work
+nbclassic 
+nbclient 
+nbconvert 
+nbformat 
+nest-asyncio 
+notebook 
+notebook_shim 
+numexpr
 numpy==1.23.4
 oauthlib==3.2.2
-packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+packaging 
 pandas==1.5.1
-pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+pandocfilters 
 panel==0.14.1
 param==1.12.2
-parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+parso 
+pickleshare 
 Pillow==9.3.0
-pluggy @ file:///C:/ci/pluggy_1648024580010/work
+pluggy 
 ply==3.11
-prometheus-client @ file:///C:/Windows/TEMP/abs_ab9nx8qb08/croots/recipe/prometheus_client_1659455104602/work
-prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
+prometheus-client 
+prompt-toolkit 
 protobuf==3.20.3
-psutil @ file:///C:/Windows/Temp/abs_b2c2fd7f-9fd5-4756-95ea-8aed74d0039flsd9qufz/croots/recipe/psutil_1656431277748/work
-pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+psutil 
+pure-eval 
 pyarrow==10.0.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pycparser 
 pyct==0.4.8
 pydantic==1.10.2
 pydeck==0.8.0
 Pygments==2.13.0
 PyJWT==2.6.0
 Pympler==1.0.1
-pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
-pyparsing @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_7f_7lba6rl/croots/recipe/pyparsing_1661452540662/work
+pyOpenSSL 
+pyparsing 
 PyQt5==5.15.7
-PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659273064801/work/pyqt_sip
+PyQt5-sip
 pyrsistent==0.19.2
-PySocks @ file:///C:/ci/pysocks_1605307512533/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+PySocks 
+python-dateutil 
 pytz==2022.6
 pytz-deprecation-shim==0.1.0.post0
 pyviz-comms==2.2.1
 pywin32==302
-pywinpty @ file:///C:/ci_310/pywinpty_1644230983541/work/target/wheels/pywinpty-2.0.2-cp39-none-win_amd64.whl
+pywinpty 
 PyYAML==6.0
-pyzmq @ file:///C:/ci/pyzmq_1657615952984/work
-regex @ file:///C:/ci/regex_1658258307256/work
-requests @ file:///C:/ci/requests_1657735342357/work
+pyzmq 
+regex 
+requests
 requests-oauthlib==1.3.1
 rich==12.6.0
 rsa==4.9
-ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
-ruamel.yaml @ file:///C:/b/abs_30ee5qbthd/croot/ruamel.yaml_1666304562000/work
-ruamel.yaml.clib @ file:///C:/b/abs_aarblxbilo/croot/ruamel.yaml.clib_1666302270884/work
+ruamel-yaml-conda 
+ruamel.yaml 
+ruamel.yaml.clib 
 sacremoses==0.0.43
-scikit-learn @ file:///C:/ci/scikit-learn_1642617276183/work
-scipy @ file:///C:/ci/scipy_1641555170412/work
+scikit-learn 
+scipy 
 semver==2.13.0
-Send2Trash @ file:///tmp/build/80754af9/send2trash_1632406701022/work
-sip @ file:///C:/Windows/Temp/abs_b8fxd17m2u/croots/recipe/sip_1659012372737/work
-six @ file:///tmp/build/80754af9/six_1644875935023/work
+Send2Trash 
+sip 
+six 
 smmap==5.0.0
-sniffio @ file:///C:/ci/sniffio_1614030527509/work
-soupsieve @ file:///C:/b/abs_fasraqxhlv/croot/soupsieve_1666296394662/work
+sniffio 
+soupsieve 
 SQLAlchemy==1.4.46
-stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+stack-data 
 streamlit==1.14.0
 streamlit-chat==0.0.2.1
-terminado @ file:///C:/ci/terminado_1644322780199/work
-threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
-tinycss2 @ file:///C:/b/abs_52w5vfuaax/croot/tinycss2_1668168823131/work
+terminado
+threadpoolctl 
+tinycss2 
 tokenizers==0.13.0.dev0
-toml @ file:///tmp/build/80754af9/toml_1616166611790/work
-toolz @ file:///C:/b/abs_cfvk6rc40d/croot/toolz_1667464080130/work
+toml
+toolz 
 torch==1.13.1
-tornado @ file:///C:/ci/tornado_1662458743919/work
-tqdm @ file:///opt/conda/conda-bld/tqdm_1647339053476/work
-traitlets @ file:///tmp/build/80754af9/traitlets_1636710298902/work
+tornado 
+tqdm
+traitlets 
 transformers==4.26.0
 twilio==7.15.1
 typing_extensions==4.4.0
 tzdata==2022.6
 tzlocal==4.2
 uritemplate==4.1.1
-urllib3 @ file:///C:/b/abs_a8_3vfznn_/croot/urllib3_1666298943664/work
+urllib3 
 validators==0.20.0
 watchdog==2.1.9
-wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+wcwidth 
 webencodings==0.5.1
-websocket-client @ file:///C:/ci/websocket-client_1614804375980/work
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
+websocket-client 
+win-inet-pton 
 wincertstore==0.2
 zipp==3.10.0
