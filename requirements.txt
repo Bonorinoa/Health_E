@@ -21,7 +21,6 @@ colorama
 colorcet==3.0.1
 commonmark==0.9.1
 conda
-conda-content-trust 
 conda-package-handling 
 contourpy==1.0.6
 cryptography 
