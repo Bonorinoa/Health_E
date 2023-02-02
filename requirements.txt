@@ -20,8 +20,7 @@ cohere==2.8.0
 colorama
 colorcet==3.0.1
 commonmark==0.9.1
-conda
-conda-package-handling 
+conda 
 contourpy==1.0.6
 cryptography 
 cycler 
