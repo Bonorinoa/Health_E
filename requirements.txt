@@ -2,7 +2,6 @@ streamlit
 pandas 
 numpy
 Pillow
-os
 logging
 pandas
 datetime
