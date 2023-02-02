@@ -20,7 +20,7 @@ cohere==2.8.0
 colorama
 colorcet==3.0.1
 commonmark==0.9.1
-conda==23.1.0
+conda
 conda-content-trust 
 conda-package-handling 
 contourpy==1.0.6
