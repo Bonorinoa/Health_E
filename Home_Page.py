@@ -32,10 +32,6 @@ image2 = Image.open('images/tongue_convo.png')
 st.image(image2, caption='tongue conversation')
 st.write("")
 
-st.markdown("Explanation of what this convo showcases.")
-image3 = Image.open('images/finger_convo.png')
-st.image(image3, caption='finger conversation')
-
 
 st.subheader('This is the architecture design on a potential conversation flow')
 diagram = Image.open('images/health-E_design.png')
