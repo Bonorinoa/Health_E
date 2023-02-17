@@ -144,7 +144,7 @@ def init_chat():
 
 st.title("Health-E: AI healthcare assistant")
 
-st.markdown("### This is a prototype of a healthcare assistant that is meant to help you find the right doctor and book appointments fast, accounting for the urgency of your injury. Now that we are sharing this with the world, if you have any feedback please reach out and contribute with a pull request. We would love to hear your thoughts!")
+st.text("This is a prototype of a healthcare assistant that is meant to help you find the right doctor and book appointments fast, accounting for the urgency of your injury. Now that we are sharing this with the world, if you have any feedback please reach out and contribute with a pull request. We would love to hear your thoughts!")
 
 init_chat()
 
