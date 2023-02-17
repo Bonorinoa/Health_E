@@ -17,12 +17,13 @@ import datetime
 import random
 from typing import Literal, Optional, Union
 
+# TODO: Modularize the program into different files
 # TODO: add history memory for recent user inputs for questions
 
 #------------------------------------------------------------
 
-COHERE_API = st.sidebar.text_input("Cohere API key", value="", type="password") #"Qn83qLsfj9Bx3WiIWzzONJkz0gnIrW7xkmtn6KQX"
-SERP_API =  st.sidebar.text_input("Google SERP API key", value="", type="password") #"9740e18bde5c0cb3e387237a3ccada2537c077a325253269207ac44e5724150e"
+COHERE_API = st.sidebar.text_input("Cohere API key", value="", type="password") 
+SERP_API =  st.sidebar.text_input("Google SERP API key", value="", type="password") 
 
 # wait until user enters API keys
 if COHERE_API == "" or SERP_API == "":
@@ -69,6 +70,7 @@ AvatarStyle = Literal[
     "personas",
 ]
 
+# not a good approach. Must be replaced with a better way to check if the input is a question
 def is_question(text):
     question_words = ["what", "when", "where", "who", "why", "how", "which", "?"]
     question_regex = "|".join(question_words)
@@ -141,6 +143,8 @@ def init_chat():
 #---------------------------------------------------------------
 
 st.title("Health-E: AI healthcare assistant")
+
+st.markdown("### This is a prototype of a healthcare assistant that is meant to help you find the right doctor and book appointments fast, accounting for the urgency of your injury. Now that we are sharing this with the world, if you have any feedback please reach out and contribute with a pull request. We would love to hear your thoughts!")
 
 init_chat()
 
