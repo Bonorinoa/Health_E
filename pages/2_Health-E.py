@@ -21,13 +21,13 @@ from typing import Literal, Optional, Union
 
 #------------------------------------------------------------
 
-COHERE_API = "Qn83qLsfj9Bx3WiIWzzONJkz0gnIrW7xkmtn6KQX" #st.sidebar.text_input("Cohere API key", value="", type="password")
-SERP_API = "9740e18bde5c0cb3e387237a3ccada2537c077a325253269207ac44e5724150e" #st.sidebar.text_input("Google SERP API key", value="", type="password")
+COHERE_API = st.sidebar.text_input("Cohere API key", value="", type="password") #"Qn83qLsfj9Bx3WiIWzzONJkz0gnIrW7xkmtn6KQX"
+SERP_API =  st.sidebar.text_input("Google SERP API key", value="", type="password") #"9740e18bde5c0cb3e387237a3ccada2537c077a325253269207ac44e5724150e"
 
 # wait until user enters API keys
-#if COHERE_API == "" or SERP_API == "":
-#    st.error("Please enter your API keys to continue.")
-#    st.stop()
+if COHERE_API == "" or SERP_API == "":
+    st.error("Please enter your API keys to continue.")
+    st.stop()
 
 co = co.Client(COHERE_API)
 
@@ -158,7 +158,7 @@ with form:
         if user_input == "":
             st.error("Sure you don't wan't to ask anything?")
         
-        if is_question(user_input):
+        if "?" in user_input:
             answer = query_bot(user_input, qa=True)
             logging.info("QA bot:" + answer)
             # append new question to user chat history
