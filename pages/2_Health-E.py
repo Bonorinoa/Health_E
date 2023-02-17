@@ -21,13 +21,13 @@ from typing import Literal, Optional, Union
 
 #------------------------------------------------------------
 
-COHERE_API = st.sidebar.text_input("Cohere API key", value="", type="password")
-SERP_API = st.sidebar.text_input("Google SERP API key", value="", type="password")
+COHERE_API = "Qn83qLsfj9Bx3WiIWzzONJkz0gnIrW7xkmtn6KQX" #st.sidebar.text_input("Cohere API key", value="", type="password")
+SERP_API = "9740e18bde5c0cb3e387237a3ccada2537c077a325253269207ac44e5724150e" #st.sidebar.text_input("Google SERP API key", value="", type="password")
 
 # wait until user enters API keys
-if COHERE_API == "" or SERP_API == "":
-    st.error("Please enter your API keys to continue.")
-    st.stop()
+#if COHERE_API == "" or SERP_API == "":
+#    st.error("Please enter your API keys to continue.")
+#    st.stop()
 
 co = co.Client(COHERE_API)
 
